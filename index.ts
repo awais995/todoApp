@@ -28,7 +28,7 @@ async function createList (list:string[]){
             );
             
             list.push(additem.add);
-            list.forEach(item => chalk.bold(console.log(item)));
+            list.forEach(item => (console.log(chalk.green(item))));
         }
         
         if (input.select === "update"){
@@ -48,13 +48,13 @@ async function createList (list:string[]){
                 }
             )
             list[list.indexOf(updateitem.update)] = newitem.new;
-            list.forEach(list => chalk.green(console.log(list)));
+            list.forEach(list => (console.log(chalk.blueBright((list)))));
         }
     
         if (input.select === "view"){
-            console.log("**** TO DO LIST ****");
-        list.forEach(item => chalk.bgBlueBright(console.log(item)));
-            console.log("***********************");
+            console.log(chalk.yellow("**** TO DO LIST ****"));
+        list.forEach(item => (chalk.bgBlueBright(console.log(item))));
+            console.log(chalk.yellow("***********************"));
         };
     
     
@@ -70,10 +70,10 @@ async function createList (list:string[]){
             );
             
             list = list.filter(val => val !== deletetitem.delete);
-            list.forEach(item => chalk.red(console.log(item)));
+            list.forEach(item => (console.log(chalk.red(item))));
         }
         if (input.select === "close") {
-            chalk.red(console.log("Closing the application..."));
+            console.log(chalk.red(("Closing the application...")));
             process.exit(0); 
         }
     } while (true);
